@@ -1,0 +1,34 @@
+<!-- START CONTACT CONTAINER  -->
+<div classs="container-fluid ">
+    <div class="contactInfoContianer">
+      <h1 class=" text-center">
+        <mark>Contact Info</mark>
+      </h1>
+      <br>
+      <div *ngIf="contactData">
+        <div *ngFor="let contact of contactData">
+          <div class="panel panel-default panel-info" *ngIf = "contact.id === routeContactId">
+            <div class="panel-heading text-center">{{contact.name}}</div>
+            <div class="panel-body">
+              <p class="text-center">{{contact.phone}}</p>
+              <!-- BUTTON CONTAINER -->
+              <div class="container-fluid">
+                <div class="row panel-footer">
+
+                  <button type="button" class="btn btn-default btn-block" 
+                  (click)="redirectToComposeMessage(contact)">
+                    <i class="fa fa-commenting-o fa-2x"></i>
+                  </button>
+
+                </div>
+              </div>
+              <!-- END BUTTON CONTAINTER -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+  <!-- END CONTACT CONTAINER -->

@@ -1,0 +1,100 @@
+<div class="pillsContainer ">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active">
+      <a data-toggle="pill" href="" (click)="enableContactTab()">Contact</a>
+    </li>
+    <li>
+      <a data-toggle="pill" href="" (click)="disableContactTab()">Data</a>
+    </li>
+  </ul>
+</div>
+
+<!-- if contact tab enabled -->
+<div *ngIf="contactTabEnabled">
+  <!-- START CONTACT CONTAINER  -->
+  <div classs="container">
+    <div class="todo-container">
+      <div class="row">
+        <h1 class=" text-center">
+          <mark>Contacts</mark>
+        </h1>
+        <div class="col-md-3">
+
+        </div>
+
+        <div class="col-md-6 col-xs-12">
+          <div *ngIf="contactData">
+            <div *ngFor="let contact of contactData">
+              <div class="panel panel-default panel-info">
+                <div class="panel-heading text-center">{{contact.name}}</div>
+                <div class="panel-body">
+                  <p class="text-center">{{contact.phone}}</p>
+                  <!-- BUTTON CONTAINER -->
+                  <div class="container-fluid">
+                    <div class="row panel-footer">
+
+                      <button type="button" class="btn btn-default btn-block" (click)="redirectToContactInfo(contact)">
+                        <i class="fa   fa-book fa-2x"></i>
+                      </button>
+
+                    </div>
+                  </div>
+                  <!-- END BUTTON CONTAINTER -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END CONTACT CONTAINER -->
+</div>
+<!-- contact tab enabled END-->
+
+<!-- if contact tab is disabled -->
+<div *ngIf="!contactTabEnabled">
+  <!-- START CONTACT CONTAINER  -->
+  <div classs="container-fluid">
+    <div class="todo-container">
+        <div class="row">
+            <h1 class=" text-center">
+              <mark>Contacts</mark>
+            </h1>
+            <div class="col-md-3">
+    
+            </div>
+    
+            <div class="col-md-6 col-xs-12">
+              <div *ngIf="contactData">
+                <div *ngFor="let send of sendSMS">
+                  <div class="panel panel-default panel-info">
+                    <div class="panel-heading text-center">{{send.name}}</div>
+                    <div class="panel-body">
+                      <p class="text-center">Message : {{send.message}}</p>
+                      <p class="text-center">Phone : {{send.phone}}</p>
+                      <p class="text-center">Date :  {{send.date}}</p>
+                      <p class="text-center">Hour : {{send.time}}</p>
+                      
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-3">
+    
+            </div>
+          </div>
+
+    </div>
+  </div>
+  <!-- END CONTACT CONTAINER -->
+</div>
+<!-- contact tab disabled END-->

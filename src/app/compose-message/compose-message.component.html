@@ -1,0 +1,24 @@
+<div class="container ">
+  <div class="row" style="text-align:left">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-xs-12 form-container">
+      <h3 class="text-info text">{{contactName}}</h3>
+      <p class="text-normal text">{{contactPhone}}</p>
+      
+      <form #cpform="ngForm" (ngSubmit)="sendMessage()">
+
+        <div class="form-group">
+          <label>Message is</label>
+          <input type="text" name="message" [(ngModel)]="message" #mess="ngModel" class="form-control" placeholder="{{message}}"
+            required>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="!cpform.form.valid">Send SMS.</button>
+
+
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
